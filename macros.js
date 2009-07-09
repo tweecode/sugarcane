@@ -313,3 +313,13 @@ macros['endsilently'] =
 {
 	handler: function() { }
 };
+
+version.extensions.choiceMacro = {major: 1, minor: 0, revision: 0};
+
+macros['choice'] =
+{
+	handler: function(place, macroName, params)
+	{
+		Wikifier.createInternalLink(place, params[0]);
+	}
+};
