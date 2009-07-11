@@ -274,11 +274,9 @@ String.prototype.readBracketedList = function()
 // The trimmed string.
 //
 
-// Trim whitespace from both ends of a string
 String.prototype.trim = function()
 {
-	var regexpTrim = new RegExp("^\\s*(.*?)\\s*$","mg");
-	return(this.replace(regexpTrim,"$1"));
+	return this.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 }
 
 //
