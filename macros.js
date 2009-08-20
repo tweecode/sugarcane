@@ -60,15 +60,13 @@ version.extensions.actionsMacro = { major: 1, minor: 1, revision: 0 };
 
 macros['actions'] =
 {
-	clicked: new Object(),
-	
 	handler: function (place, macroName, params)
 	{
 		var list = insertElement(place, 'ul');
 		
 		for (var i = 0; i < params.length; i++)
 		{
-			if (macros['actions'].clicked[params[i]])
+			if (state.history[0].variables['actions clicked'][params[i]])
 				continue;
 					
 			var item = insertElement(list, 'li');
@@ -79,7 +77,7 @@ macros['actions'] =
 					
 			link.onclick = function()
 			{
-				macros['actions'].clicked[this.id] = true;
+				state.history[0].variables['actions clicked'][this.id] = true;
 				state.display(this.id, link);
 			};
 		};
