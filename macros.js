@@ -15,22 +15,20 @@ macros['back'] =
 		var hash = '';
 		
 		if (params[0])
-		{
 			for (var i = 0; i < state.history.length; i++)
 				if (state.history[i].passage.title == params[0])
 				{
 					hash = state.history[i].hash;
 					break;
-				};
-				
-			if (hash == '')
-			{
-				throwError(place, "can't find passage \"" + params[0] + '" in history');
-				return;
-			};
-		}
+				}
 		else
 			hash = state.history[1].hash;
+
+		if (hash == '')
+		{
+			throwError(place, "can't find passage \"" + params[0] + '" in history');
+			return;
+		};
 
 		el = document.createElement('a');
 		el.className = 'back';
