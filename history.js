@@ -82,8 +82,7 @@ History.prototype.display = function (title, link, render)
 	
 	var passage = tale.get(title);
 	
-	this.history.unshift({ passage: passage,
-													variables: clone(this.history[0].variables) } );
+	this.history.unshift({ passage: passage, variables: clone(this.history[0].variables) } );
 	this.history[0].hash = this.save();
 	
 	// add it to the page
