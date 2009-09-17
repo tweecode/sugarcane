@@ -62,6 +62,9 @@ macros['actions'] =
 	{
 		var list = insertElement(place, 'ul');
 		
+		if (! state.history[0].variables['actions clicked'])
+			state.history[0].variables['actions clicked'] = {};
+		
 		for (var i = 0; i < params.length; i++)
 		{
 			if (state.history[0].variables['actions clicked'][params[i]])
