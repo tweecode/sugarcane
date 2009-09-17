@@ -54,7 +54,7 @@ macros['display'] =
 
 // <<actions>>
 
-version.extensions.actionsMacro = { major: 1, minor: 1, revision: 0 };
+version.extensions.actionsMacro = { major: 1, minor: 2, revision: 0 };
 
 macros['actions'] =
 {
