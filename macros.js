@@ -13,16 +13,23 @@ macros['back'] =
 	handler: function (place, name, params)
 	{
 		var hash = '';
-		
-		if (params[0])
+				
+		if (params[0])			
 			for (var i = 0; i < state.history.length; i++)
 				if (state.history[i].passage.title == params[0])
 				{
 					hash = state.history[i].hash;
 					break;
 				}
+		}
 		else
-			hash = state.history[1].hash;
+			if (state.history[1])
+				hash = state.history[1].hash;
+			else
+			{
+				throwError(place, "can't go back from the first passage read");
+				return;
+			};
 
 		if (hash == '')
 		{
