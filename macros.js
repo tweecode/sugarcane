@@ -21,7 +21,6 @@ macros['back'] =
 					hash = state.history[i].hash;
 					break;
 				}
-		}
 		else
 			if (state.history[1])
 				hash = state.history[1].hash;
