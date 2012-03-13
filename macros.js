@@ -10,38 +10,39 @@ version.extensions.backMacro = {major: 1, minor: 0, revision: 0};
 
 macros['back'] = 
 {
-	handler: function (place, name, params)
-	{
-		var hash = '';
-				
-		if (params[0])			
-			for (var i = 0; i < state.history.length; i++)
-				if (state.history[i].passage.title == params[0])
-				{
-					hash = state.history[i].hash;
-					break;
-				}
-		else
-			if (state.history[1])
-				hash = state.history[1].hash;
-			else
-			{
-				throwError(place, "can't go back from the first passage read");
-				return;
-			};
+    handler: function (place, name, params)
+    {
+        var hash = '';
 
-		if (hash == '')
-		{
-			throwError(place, "can't find passage \"" + params[0] + '" in history');
-			return;
-		};
+        if (params[0]) {
+            for (var i = 0; i < state.history.length; i++) {
+                if (state.history[i].passage.title == params[0])
+                {
+                    hash = state.history[i].hash;
+                    break;
+                }
+            }
+        } else {
+            if (state.history[1]) {
+                hash = state.history[1].hash;
+            } else {
+                throwError(place, "can't go back from the first passage read");
+                return;
+            };
+        }
 
-		el = document.createElement('a');
-		el.className = 'back';
-		el.href = hash;
-		el.innerHTML = '<b>&laquo;</b> Back';
-		place.appendChild(el);	
-	}
+        if (hash == '')
+        {
+            throwError(place, "can't find passage \"" + params[0] + '" in history');
+            return;
+        };
+
+        el = document.createElement('a');
+        el.className = 'back';
+        el.href = hash;
+        el.innerHTML = '<b>&laquo;</b> Back';
+        place.appendChild(el);
+    }
 };
 
 // <<display>>
